@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema=mongoose.Schema;
 const ShippingSchema = new Schema({
     address: String,
-    city: Number,
+    city: String,
     pincode: Number,
     cid: [
         {

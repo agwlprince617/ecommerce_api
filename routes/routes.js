@@ -24,14 +24,14 @@ router.post('/customer', bodyParser,async (req, res) => {
     }
 })
 
-//Adding purchase details using post route
-router.post(':id/purchase', bodyParser,async (req, res) => {
+//Adding purchase details using post route for a particular user
+router.post('/purchase', bodyParser,async (req, res) => {
     const newPurchase = new Purchase({
         pname: req.body.pname,
         qty: req.body.qty,
         price: req.body.price,
         mrp: req.body.mrp,
-        cid: req.body.customers._id
+        cid: req.body.cid
     })
     // console.log(newPurchase)
     try {
@@ -43,14 +43,14 @@ router.post(':id/purchase', bodyParser,async (req, res) => {
     }
 })
 
-//Post the Shipment details
-router.post(':id/purchase/shipment', bodyParser,async (req, res) => {
+//Post the Shipment details for  a particular user
+router.post('/shipment', bodyParser,async (req, res) => {
     const newShipment = new Shipping({
         address: req.body.address,
         city: req.body.city,
         pincode: req.body.pincode,
-        cid: req.body.customers._id,
-        pid: req.body.purchases._id
+        cid: req.body.cid,
+        pid: req.body.pid
     })
     // console.log(newPurchase)
     try {
